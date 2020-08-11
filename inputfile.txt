@@ -1,0 +1,14 @@
+[Unit] 
+Description=zookeeper 
+After=syslog.target network.target 
+
+[Service] 
+Type=simple 
+User=kafka 
+Group=kafka 
+ExecStart=/opt/softwares/kafka_2.12-2.4.0/bin/zookeeper-server-start.sh /opt/softwares/kafka_2.12-2.4.0/config/zookeeper.properties
+ExecStop=/opt/softwares/kafka_2.12-2.4.0/bin/zookeeper-server-stop.sh 
+Restart=on-abnormal
+
+[Install] 
+WantedBy=multi-user.target
